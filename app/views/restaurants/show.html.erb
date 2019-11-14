@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex col-6 p-0 justify-content-between">
+  <h1>
+    <%= @restaurant.name %>
+  </h1>
+  <h3>
+    <%= @restaurant.category %>
+  </h3>
+  </div>
+  <br>
+  <p>Address :
+    <%= @restaurant.address %>
+  </p>
+  <p>Phone number :
+    <%= @restaurant.phone_number %>
+  </p>
+  <br>
+  <h2 class='d-inline-block'>Leave a review</h2>
+  <%= render 'form' %>
+  <br>
+  <h2 class='d-inline-block'>All reviews</h2>
+  <br>
+  <ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item col-6">
+      <% review.rating.times do %>
+      <%= "★" %>
+      <% end %>
+      <br>
+      <%= review.content %>
+    </li>
+  <% end %>
+  </ul>
+</div>
